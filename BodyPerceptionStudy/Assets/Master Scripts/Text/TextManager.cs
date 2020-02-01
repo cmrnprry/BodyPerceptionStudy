@@ -10,8 +10,6 @@ public class TextManager : MonoBehaviour
     public GameObject answers;
     public GameManager gm;
     public TextMeshProUGUI t;
-
-    public GameObject player;
     private Queue<string> sentences;
 
     void Start()
@@ -24,7 +22,7 @@ public class TextManager : MonoBehaviour
     public void StartDialogue(Text text)
     {
         Debug.Log("start text: " + text.sentences.Length);
-        player.GetComponent<FirstPersonController>().enabled = false;
+        gm.player.GetComponent<FirstPersonController>().enabled = false;
 
         foreach (string sentence in text.sentences)
         {
@@ -82,6 +80,6 @@ public class TextManager : MonoBehaviour
 
         answers.SetActive(false);
         StartCoroutine(gm.CheckForInput());
-        player.GetComponent<FirstPersonController>().enabled = true;
+        gm.player.GetComponent<FirstPersonController>().enabled = true;
     }
 }

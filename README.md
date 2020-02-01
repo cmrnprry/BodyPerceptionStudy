@@ -44,7 +44,7 @@ To be used whenever the fridge is opened:
 `public void openedFridge();`
 
 # How to Set Up Different Meals in Fridge
-Click on the Refrigerator game object in the hierarchy (Room -> Kitchen Cabinet -> Refigerator). Under Choose A Meal (Script) there will be a label titled Foods, click that and in size, enter how many foods the participent will be able to see when they open the fridge. This will then bring up lists that can be populated with the food name and amount of calories.
+Click on the Refridgerator Manager game object. Under Choose A Meal (Script) there will be a label titled Foods, click that and in size, enter how many foods the participent will be able to see when they open the fridge. This will then bring up lists that can be populated with the food name and amount of calories.
 
 
 

@@ -19,8 +19,7 @@ public class ChooseAMeal : MonoBehaviour
     public List<FoodItem> foods;
     public GameObject button;
     public GameObject parent;
-    public TextMeshProUGUI pressE;
-    public GameObject player;
+    public GameManager gm;
 
     // Do not want multiple canvases. 
     void Start()
@@ -45,14 +44,14 @@ public class ChooseAMeal : MonoBehaviour
     public void BeforeChooseMeal()
     {
         parent.SetActive(true);
-        player.GetComponent<FirstPersonController>().enabled = false;
+        gm.player.GetComponent<FirstPersonController>().enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
     public void AfterChooseMeal()
     {
-        player.GetComponent<FirstPersonController>().enabled = true;
+        gm.player.GetComponent<FirstPersonController>().enabled = true;
         parent.SetActive(false);
     }
 
