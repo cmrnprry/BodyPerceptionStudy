@@ -58,11 +58,8 @@ public class StatsManager : MonoBehaviour
             Debug.Log("Initializing Stats Manager!");
             managerInstance = this;
             Debug.Log("Stat Manager Loaded!");
+
         }
-        addBook("To eat a fish", questionResult.INDIFFERENT);
-        addBook("The sequel", questionResult.AGREE);
-        addQuiz("who?", questionResult.AGREE);
-        saveToCSV("runResults");   
     }
 
     //  Methods for adjusting stats from outside
