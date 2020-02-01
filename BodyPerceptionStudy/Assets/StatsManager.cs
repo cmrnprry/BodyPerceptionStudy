@@ -81,7 +81,7 @@ public class StatsManager : MonoBehaviour
         exercises.Add((exerciseName, calories));
     }
 
-    public void quizzesTaken(string quizQuestion, quizResult quizResult)
+    public void addQuiz(string quizQuestion, quizResult quizResult)
     {
         quizResults.Add((quizQuestion, quizResult));
     }
