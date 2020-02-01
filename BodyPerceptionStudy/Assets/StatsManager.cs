@@ -56,15 +56,7 @@ public class StatsManager : MonoBehaviour
             managerInstance = this;
             Debug.Log("Stat Manager Loaded!");
         }
-        addFood("POOPOO", orderType.APP, 300);
-        addFood("POOPOO", orderType.FRIDGE, 200);
-        addExercise("HEEHAWWS", -300);
-        addQuiz("HOOHOO?", quizResult.AGREE);
-        addQuiz("HAHA?", quizResult.INDIFFERENT);
-        checkedPhone();
-        checkedCals();
-        saveToCSV("fakeRun");
-        
+        saveToCSV("runResults");   
     }
 
     //Methods for adjusting stats from outside
