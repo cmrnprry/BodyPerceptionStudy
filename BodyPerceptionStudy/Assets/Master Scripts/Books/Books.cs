@@ -27,6 +27,7 @@ public class Books : MonoBehaviour
             if (hit.transform.tag == "Book")
             {
                 Debug.Log("Press E to read book");
+                pressE.text = "Press E to read book";
                 pressE.gameObject.SetActive(true);
                 
                 if (Input.GetKeyDown(KeyCode.E))
