@@ -98,13 +98,13 @@ public class GameManager : MonoBehaviour
         //Checks to see if the player wants to look at their calories
         PublicCalories.gameObject.SetActive(false);
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.C))
         {
             //The player has checked the stats manager
             StatsManager.Instance.checkedCals();
 
             //Sets the calories to be displayed
-            var curCal = StatsManager.Instance.getCurCalories();
+            var curCal = "Calories: " + StatsManager.Instance.getCurCalories();
             PublicCalories.text = curCal.ToString();
 
             //Shows the calories
