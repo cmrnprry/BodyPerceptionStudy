@@ -39,3 +39,8 @@ To be used whenever the player opens the food app:
 
 To be used whenever the fridge is opened:
 `public void openedFridge();`
+
+# How to Set Up Choose-A-Meal Pop-ups
+
+Attach script ChooseAMeal.cs to the GameObject which orders meals, a pop-up with choices will appear when the player/camera curses over it. In the Inspector, serialize the list of meals offfered with name + calorie count. TBC...
+
