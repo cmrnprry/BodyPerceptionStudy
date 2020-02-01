@@ -26,8 +26,6 @@ public class ChooseAMeal : MonoBehaviour
     void Start()
     {
         PopulateList();
-
-        StartCoroutine(FindFridge());
     }
 
     //Populates UI elements with the food options and their calories
@@ -44,61 +42,7 @@ public class ChooseAMeal : MonoBehaviour
         }
     }
 
-    public IEnumerator FindFridge()
-    {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.transform.tag == "Fridge" || hit.transform.tag == "Book")
-            {
-                Debug.Log("Press E to open fridge");
-                pressE.text = "Press E to open fridge";
-                pressE.gameObject.SetActive(true);
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    Debug.Log("The E Key was pressed");
-                    
-
-                    // Tell stats the fridge has been opened.
-                    StatsManager.Instance.openedFridge();
-
-                    //display text of that object
-                    StartCoroutine(ChooseMeal());
-                }
-            }
-            else
-            {
-                pressE.gameObject.SetActive(false);
-                
-            }
-
-        }
-
-
-        yield return new WaitForSeconds(.01f);
-        StartCoroutine(FindFridge());
-    }
-
-    IEnumerator WaitUntil(KeyCode code)
-    {
-        Debug.Log("wait");
-        while (!Input.GetKeyDown(code))
-            yield return null;
-
-        Debug.Log("wait end");
-    }
-
-    IEnumerator ChooseMeal()
-    {
-        BeforeChooseMeal();
-        yield return StartCoroutine(WaitUntil(KeyCode.Mouse0));
-        AfterChooseMeal();
-    }
-
-    void BeforeChooseMeal()
+    public void BeforeChooseMeal()
     {
         parent.SetActive(true);
         player.GetComponent<FirstPersonController>().enabled = false;
@@ -106,7 +50,7 @@ public class ChooseAMeal : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    void AfterChooseMeal()
+    public void AfterChooseMeal()
     {
         player.GetComponent<FirstPersonController>().enabled = true;
         parent.SetActive(false);

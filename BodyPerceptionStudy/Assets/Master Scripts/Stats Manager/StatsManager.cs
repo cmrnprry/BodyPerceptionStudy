@@ -116,6 +116,11 @@ public class StatsManager : MonoBehaviour
         numFridgeOpens++;
     }
 
+    public int getCurCalories()
+    {
+        return caloriesTracked;
+    }
+
 
 
     // Private methods

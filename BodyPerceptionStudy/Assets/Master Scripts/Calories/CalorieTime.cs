@@ -31,20 +31,18 @@ public class CalorieTime : MonoBehaviour
 
     public IEnumerator checkKeys()
     {
-        Debug.Log("POOOP");
         PublicCalories.text = "Calories " + curCalories;
         PublicCalories.gameObject.SetActive(false);
 
         if (Input.GetKey(KeyCode.E))
         {
-            Debug.Log("BLOOP");
-            //show te calories
+
+            //show the calories
             PublicCalories.gameObject.SetActive(true);
         }
 
         yield return new WaitForSeconds(.01f);
 
         StartCoroutine(checkKeys());
-
     }
 }
