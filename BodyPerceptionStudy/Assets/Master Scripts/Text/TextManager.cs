@@ -8,10 +8,8 @@ public class TextManager : MonoBehaviour
 
     public GameObject textBox;
     public GameObject answers;
-    public Books b;
+    public GameManager gm;
     public TextMeshProUGUI t;
-
-    public GameObject player;
     private Queue<string> sentences;
 
     void Start()
@@ -24,7 +22,7 @@ public class TextManager : MonoBehaviour
     public void StartDialogue(Text text)
     {
         Debug.Log("start text: " + text.sentences.Length);
-        player.GetComponent<FirstPersonController>().enabled = false;
+        gm.player.GetComponent<FirstPersonController>().enabled = false;
 
         foreach (string sentence in text.sentences)
         {
@@ -55,16 +53,6 @@ public class TextManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator WaitUntil(KeyCode code)
-    {
-        Debug.Log("wait");
-        while (!Input.GetKeyDown(code))
-            yield return null;
-
-        Debug.Log("wait end");
-        //yield return new WaitForFixedUpdate();
-    }
-
     IEnumerator TypeSentence(string sentence)
     {
         string[] words = sentence.Split(' ');  // splits the sentences by word
@@ -76,7 +64,7 @@ public class TextManager : MonoBehaviour
             yield return new WaitForEndOfFrame(); //waits a single frame
         }
 
-        yield return StartCoroutine(WaitUntil(KeyCode.Return));
+        yield return StartCoroutine(gm.WaitUntil(KeyCode.Return));
         StartCoroutine(DisplayNextSentence());
     }
 
@@ -88,10 +76,10 @@ public class TextManager : MonoBehaviour
         answers.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        yield return StartCoroutine(WaitUntil(KeyCode.Mouse0));
+        yield return StartCoroutine(gm.WaitUntil(KeyCode.Mouse0));
 
         answers.SetActive(false);
-        StartCoroutine(b.FindBook());
-        player.GetComponent<FirstPersonController>().enabled = true;
+        StartCoroutine(gm.CheckForInput());
+        gm.player.GetComponent<FirstPersonController>().enabled = true;
     }
 }

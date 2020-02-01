@@ -5,13 +5,13 @@ using UnityEngine;
 public class TextTrigger : MonoBehaviour
 {
     [SerializeField] public Text text;
-    public Books b;
+    public GameManager gm;
 
     public void TriggerDialogue()
     {
 
         Debug.Log("Trigger Text");
-        StopCoroutine(b.FindBook());
+        StopCoroutine(gm.CheckForInput());
         FindObjectOfType<TextManager>().StartDialogue(text);
     }
 }
