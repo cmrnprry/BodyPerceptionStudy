@@ -43,7 +43,8 @@ To be used whenever the player opens the food app:
 To be used whenever the fridge is opened:
 `public void openedFridge();`
 
-# How to Set Up Choose-A-Meal Pop-ups
+# How to Set Up Different Meals in Fridge
+Click on the Refrigerator game object in the hierarchy (Room -> Kitchen Cabinet -> Refigerator). Under Choose A Meal (Script) there will be a label titled Foods, click that and in size, enter how many foods the participent will be able to see when they open the fridge. This will then bring up lists that can be populated with the food name and amount of calories.
 
-Attach script ChooseAMeal.cs to the GameObject which orders meals, a pop-up with choices will appear when the player/camera curses over it. In the Inspector, serialize the list of meals offfered with name + calorie count. TBC...
+
 
