@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityStandardAssets.Characters.FirstPerson;
 public class TextManager : MonoBehaviour
 {
+
     public GameObject textBox;
+    public GameObject answers;
     public Books b;
     public TextMeshProUGUI t;
 
@@ -22,7 +24,7 @@ public class TextManager : MonoBehaviour
     public void StartDialogue(Text text)
     {
         Debug.Log("start text: " + text.sentences.Length);
-        // player.GetComponent<FirstPersonController>().enabled = false;
+        player.GetComponent<FirstPersonController>().enabled = false;
 
         foreach (string sentence in text.sentences)
         {
@@ -43,8 +45,7 @@ public class TextManager : MonoBehaviour
         // if there are no more sentences in the queue
         if (sentences.Count == 0)
         {
-            EndDialogue();
-            StopAllCoroutines();
+            StartCoroutine(EndDialogue());
             yield break;
         }
 
@@ -79,11 +80,18 @@ public class TextManager : MonoBehaviour
         StartCoroutine(DisplayNextSentence());
     }
 
-    void EndDialogue()
+    IEnumerator EndDialogue()
     {
+        //Allows answers to be displayed
         t.text = "";
         textBox.SetActive(false);
+        answers.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        yield return StartCoroutine(WaitUntil(KeyCode.Mouse0));
+
+        answers.SetActive(false);
         StartCoroutine(b.FindBook());
-        // player.GetComponent<FirstPersonController>().enabled = true;
+        player.GetComponent<FirstPersonController>().enabled = true;
     }
 }
