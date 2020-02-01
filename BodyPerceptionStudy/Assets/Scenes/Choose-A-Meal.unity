@@ -1976,6 +1976,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4824839bd071a8147b3efd7538332d29, type: 3}
+--- !u!1 &1683766454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 112080, guid: 7f58309ce166972478cee4c83a1c91cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 466315201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1683766455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683766454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa5031cc2df307468583e266e85ce7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foods:
+  - name: 
+    calories: 0
+  - name: 
+    calories: 0
+  - name: 
+    calories: 0
 --- !u!1 &1839141701
 GameObject:
   m_ObjectHideFlags: 0
