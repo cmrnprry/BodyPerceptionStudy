@@ -12,7 +12,7 @@ public class Books : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(FindBook());
+        //StartCoroutine(FindBook());
 
         Debug.Log("Coroutine started");
     }
@@ -24,7 +24,7 @@ public class Books : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.tag == "Book")
+            if (hit.transform.tag == "Book" || hit.transform.tag == "Fridge")
             {
                 Debug.Log("Press E to read book");
                 pressE.text = "Press E to read book";

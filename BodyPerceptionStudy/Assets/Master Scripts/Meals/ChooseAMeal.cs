@@ -22,7 +22,6 @@ public class ChooseAMeal : MonoBehaviour
     public TextMeshProUGUI pressE;
     public GameObject player;
 
-    // TODO AFTER CAM FINISHES UI TASK
     // Do not want multiple canvases. 
     void Start()
     {
@@ -31,6 +30,7 @@ public class ChooseAMeal : MonoBehaviour
         StartCoroutine(FindFridge());
     }
 
+    //Populates UI elements with the food options and their calories
     void PopulateList()
     {
         foreach (var food in foods)
@@ -51,7 +51,7 @@ public class ChooseAMeal : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.tag == "Fridge")
+            if (hit.transform.tag == "Fridge" || hit.transform.tag == "Book")
             {
                 Debug.Log("Press E to open fridge");
                 pressE.text = "Press E to open fridge";
@@ -60,7 +60,7 @@ public class ChooseAMeal : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Debug.Log("The E Key was pressed");
-                    player.GetComponent<FirstPersonController>().enabled = false;
+                    
 
                     // Tell stats the fridge has been opened.
                     StatsManager.Instance.openedFridge();
@@ -72,7 +72,7 @@ public class ChooseAMeal : MonoBehaviour
             else
             {
                 pressE.gameObject.SetActive(false);
-                player.GetComponent<FirstPersonController>().enabled = true;
+                
             }
 
         }
@@ -82,16 +82,34 @@ public class ChooseAMeal : MonoBehaviour
         StartCoroutine(FindFridge());
     }
 
+    IEnumerator WaitUntil(KeyCode code)
+    {
+        Debug.Log("wait");
+        while (!Input.GetKeyDown(code))
+            yield return null;
+
+        Debug.Log("wait end");
+    }
+
     IEnumerator ChooseMeal()
     {
-        //show cursor and options
+        BeforeChooseMeal();
+        yield return StartCoroutine(WaitUntil(KeyCode.Mouse0));
+        AfterChooseMeal();
+    }
+
+    void BeforeChooseMeal()
+    {
+        parent.SetActive(true);
+        player.GetComponent<FirstPersonController>().enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        parent.SetActive(true);
+    }
 
-
-
-        yield return new WaitForSeconds(.01f);
+    void AfterChooseMeal()
+    {
+        player.GetComponent<FirstPersonController>().enabled = true;
+        parent.SetActive(false);
     }
 
 
