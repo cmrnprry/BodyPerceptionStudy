@@ -25,15 +25,18 @@ public class StatsManager : MonoBehaviour
     // private int numFridgeTakes = numOfType(orderType.FRIDGE);
     // private int totalFoodTakes = foodsEaten.count;
     // private int exercisesDone = exercises.count;
+    // private int quizzesDone = quizResults.count;
 
 
     //Lists
     private List<(string, int, orderType)> foodsEaten = new List<(string, int, orderType)>();
     private List<(string, int)> exercises = new List<(string, int)>();
+    private List<(string, quizResult)> quizResults = new List<(string, quizResult)>();
     
 
     //Enums:
     public enum orderType { APP, FRIDGE };
+    public enum quizResult { AGREE, DISAGREE, INDIFFERENT };
   
     // Start is called before the first frame update
     void Start()
@@ -76,6 +79,11 @@ public class StatsManager : MonoBehaviour
     {
         addCalories(calories);
         exercises.Add((exerciseName, calories));
+    }
+
+    public void quizzesTaken(string quizQuestion, quizResult quizResult)
+    {
+        quizResults.Add((quizQuestion, quizResult));
     }
 
     public void checkedPhone()
