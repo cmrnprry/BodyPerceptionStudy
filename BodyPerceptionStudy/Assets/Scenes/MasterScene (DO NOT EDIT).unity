@@ -1072,7 +1072,8 @@ MonoBehaviour:
     calories: 100
   button: {fileID: 2598105950173119179, guid: 30719cd788eedb74b8761aa2426c4603, type: 3}
   parent: {fileID: 1644352006}
-  pressE: {fileID: 0}
+  pressE: {fileID: 1488368171}
+  player: {fileID: 509202303}
 --- !u!1 &509202303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0,
