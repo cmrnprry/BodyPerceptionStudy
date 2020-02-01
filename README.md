@@ -10,7 +10,7 @@ There are two enum types to use:
 
 `orderType.APP` and `orderType.FRIDGE` are used for indicating where a food item originated
 
-`quizResult.AGREE`, `quizResult.DISAGREE`, and `quizResult.INDIFFERENT` are used to indicate the user response to a magazine quiz
+`questionResult.AGREE`, `questionResult.DISAGREE`, and `questionResult.INDIFFERENT` are used to indicate the user response to a magazine quiz
 
 ## FUNCTIONS
 While scripting, keep the following functions in mind:
@@ -26,7 +26,10 @@ To be used whenever the player exercises:
 Where calories is A NEGATIVE NUMBER indicating the number of calories burnt in the exercise
 
 To be used when a quiz is completed:
-`public void addQuiz(string quizQuestion, quizResult quizResult);`
+`public void addQuiz(string quizQuestion, questionResult quizResult);`
+
+To be used whenever the player reads a book:
+`public void addBook(string bookName, questionResult bookResult);`
 
 To be used whenever the phone is opened:
 `public void checkedPhone();`
@@ -40,7 +43,8 @@ To be used whenever the player opens the food app:
 To be used whenever the fridge is opened:
 `public void openedFridge();`
 
-# How to Set Up Choose-A-Meal Pop-ups
+# How to Set Up Different Meals in Fridge
+Click on the Refrigerator game object in the hierarchy (Room -> Kitchen Cabinet -> Refigerator). Under Choose A Meal (Script) there will be a label titled Foods, click that and in size, enter how many foods the participent will be able to see when they open the fridge. This will then bring up lists that can be populated with the food name and amount of calories.
 
-Attach script ChooseAMeal.cs to the GameObject which orders meals, a pop-up with choices will appear when the player/camera curses over it. In the Inspector, serialize the list of meals offfered with name + calorie count. TBC...
+
 
