@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class CalorieCount : MonoBehaviour
+public class CalorieTime : MonoBehaviour
 {
 
 
     public int curCalories;
 
+    public TextMeshProUGUI PublicCalories;
+
     private void Start()
     {
         curCalories = 1200;
+        StartCoroutine(checkKeys());
     }
 
     public void burnCalories(int calToBurn)
@@ -27,14 +31,18 @@ public class CalorieCount : MonoBehaviour
 
     public IEnumerator checkKeys()
     {
+        Debug.Log("POOOP");
+        PublicCalories.text = "Calories " + curCalories;
+        PublicCalories.gameObject.SetActive(false);
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
-
+            Debug.Log("BLOOP");
             //show te calories
+            PublicCalories.gameObject.SetActive(true);
         }
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(.01f);
 
         StartCoroutine(checkKeys());
 
