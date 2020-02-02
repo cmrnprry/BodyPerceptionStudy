@@ -57,7 +57,8 @@ public class ChooseAMeal : MonoBehaviour
 
     public void AfterChooseMeal(GameObject parent)
     {
-        gm.player.GetComponent<FirstPersonController>().enabled = true;
+        if (parent.name == "Fridge Holder")
+            gm.player.GetComponent<FirstPersonController>().enabled = true;
         parent.SetActive(false);
         gm.orderFoodScreen.SetActive(false);
     }

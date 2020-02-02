@@ -36,10 +36,27 @@ public class GameManager : MonoBehaviour
         phone.SetActive(false);
         StartCoroutine(CheckForInput());
     }
-
-    // Update is called once per frame
-    void Update()
+    //checks for input
+    public IEnumerator CheckForInput()
     {
+        //Checks to see if the player wants to look at their calories
+        PublicCalories.gameObject.SetActive(false);
+
+        // To display the number of calories
+        if (Input.GetKey(KeyCode.C))
+        {
+            //The player has checked the stats manager
+            StatsManager.Instance.checkedCals();
+
+            //Sets the calories to be displayed
+            var curCal = "Calories: " + StatsManager.Instance.getCurCalories();
+            PublicCalories.text = curCal.ToString();
+
+            //Shows the calories
+            PublicCalories.gameObject.SetActive(true);
+        }
+
+        // To display the phone
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             StatsManager.Instance.checkedPhone();
@@ -48,11 +65,8 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-    }
 
-    //checks for input
-    public IEnumerator CheckForInput()
-    {
+
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -94,7 +108,7 @@ public class GameManager : MonoBehaviour
                 }
             }
             //Check for if the player is looking at the treadmill
-            if (hit.transform.tag == "Tread")
+            else if (hit.transform.tag == "Tread")
             {
                 Debug.Log("Press E to read book");
                 pressE.text = "Press E to run on the treadmill";
@@ -118,33 +132,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //Checks to see if the player wants to look at their calories
-        PublicCalories.gameObject.SetActive(false);
-
-        if (Input.GetKey(KeyCode.C))
-        {
-            //The player has checked the stats manager
-            StatsManager.Instance.checkedCals();
-
-            //Sets the calories to be displayed
-            var curCal = "Calories: " + StatsManager.Instance.getCurCalories();
-            PublicCalories.text = curCal.ToString();
-
-            //Shows the calories
-            PublicCalories.gameObject.SetActive(true);
-        }
-
         yield return new WaitForSeconds(.01f);
         StartCoroutine(CheckForInput());
-    }
-
-    public IEnumerator WaitUntil(KeyCode code)
-    {
-        Debug.Log("wait");
-        while (!Input.GetKeyDown(code))
-            yield return null;
-
-        Debug.Log("wait end");
     }
 
     IEnumerator ChooseMeal()
@@ -163,15 +152,7 @@ public class GameManager : MonoBehaviour
         meal.AfterChooseMeal(meal.orderParent);
     }
 
-    public IEnumerator WaitUntilButton()
-    {
-        Debug.Log("wait");
-        while (!confirm)
-            yield return null;
-
-        Debug.Log("wait end");
-    }
-
+    //When interacting with the treadmill
     IEnumerator ExersciseTreadMill()
     {
         phone.SetActive(true);
@@ -180,12 +161,32 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         
-        yield return StartCoroutine(WaitUntilButton());
+        yield return StartCoroutine(WaitUntilConfirm());
 
         player.GetComponent<FirstPersonController>().enabled = true;
-        phone.SetActive(false);
         treadmillScreen.SetActive(false);
+        phone.SetActive(false);
+        
     }
 
+    //waits until the player hits confirm
+    public IEnumerator WaitUntilConfirm()
+    {
+        Debug.Log("wait");
+        while (!confirm)
+            yield return null;
+
+        Debug.Log("wait end");
+    }
+
+    //waits until the player hits a specified key
+    public IEnumerator WaitUntil(KeyCode code)
+    {
+        Debug.Log("wait");
+        while (!Input.GetKeyDown(code))
+            yield return null;
+
+        Debug.Log("wait end");
+    }
 
 }

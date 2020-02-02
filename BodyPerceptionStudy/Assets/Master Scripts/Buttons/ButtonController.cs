@@ -46,8 +46,12 @@ public class ButtonController : MonoBehaviour
     //Exits the Phone App
     public void ExitPhone()
     {
-        PhoneHome();
         gm.phone.SetActive(false);
+        gm.orderFoodScreen.SetActive(false);
+        gm.resultsScreen.SetActive(false);
+        gm.treadmillScreen.SetActive(false);
+        gm.weightsScreen.SetActive(false);
+        gm.exerciseScreen.SetActive(false);
         gm.player.enabled = true;
     }
 
@@ -67,11 +71,14 @@ public class ButtonController : MonoBehaviour
 
     public void PhoneHome()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         gm.orderFoodScreen.SetActive(false);
         gm.resultsScreen.SetActive(false);
         gm.treadmillScreen.SetActive(false);
         gm.weightsScreen.SetActive(false);
         gm.exerciseScreen.SetActive(false);
+        gm.player.enabled = false;
     }
 
     public void turnOffOrder()
@@ -90,6 +97,8 @@ public class ButtonController : MonoBehaviour
 
     public void OrderMainMenu()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         StartCoroutine(gm.OrderMeal());
         gm.resultsScreen.SetActive(false);
         gm.treadmillScreen.SetActive(false);
