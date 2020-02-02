@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
@@ -28,9 +29,19 @@ public class ButtonController : MonoBehaviour
 
     }
 
-    void OnApplicationQuit()
+    public void StartGame()
     {
-        StatsManager.Instance.saveToCSV("runResults");
+        SceneManager.LoadScene("Master Scene");
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void ReturntoMain()
+    {
+        SceneManager.LoadScene("Start");
     }
 
     //Exits the Phone App
