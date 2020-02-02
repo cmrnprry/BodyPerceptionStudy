@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MasterScene (DO NOT EDIT).unity
+    guid: 10bd1d0c2d60c134cafc196fcf856b4e
+  - enabled: 1
+    path: Assets/Scenes/AnthonyScene.unity
+    guid: 789ed0ba2269543a78653574bdc77106
+  - enabled: 1
+    path: Assets/Scenes/tonyTimerScene.unity
+    guid: 7a14e84cdbd2f4b0898e2c68abc38d23
   m_configObjects: {}

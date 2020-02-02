@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI results;
     public int treadmillCaloriesPerHour;
     public int weightsCaloriesPerHour;
+    public int numPlayMinutes;
+    private float numSecondsLeft;
+    private bool gameDone = false;
 
     public TextMeshProUGUI pressE;
 
@@ -35,7 +39,28 @@ public class GameManager : MonoBehaviour
     {
         phone.SetActive(false);
         StartCoroutine(CheckForInput());
+        numSecondsLeft = (float)(numPlayMinutes * 60);
     }
+
+    void Update() {
+        if(numSecondsLeft <= 0.0f && !gameDone) {
+            shutDown();
+            gameDone = true;
+        }
+        else
+		{
+            numSecondsLeft -= Time.deltaTime;
+		}
+    }
+
+    public void shutDown()
+	{
+        string timestamp = System.DateTime.Today.ToShortDateString().Replace("/", "-");
+        timestamp += " " + System.DateTime.Now.ToShortTimeString().Replace(":", "-");
+        StatsManager.Instance.saveToCSV(timestamp);
+        SceneManager.LoadScene("AnthonyScene");
+    }
+
     //checks for input
     public IEnumerator CheckForInput()
     {

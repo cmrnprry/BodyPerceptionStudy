@@ -38,11 +38,6 @@ public class ButtonController : MonoBehaviour
         StatsManager.Instance.addFood(foodName.ToString(), StatsManager.orderType.FRIDGE, calories);
     }
 
-    void OnApplicationQuit()
-    {
-        StatsManager.Instance.saveToCSV("runResults");
-    }
-
     //Exits the Phone App
     public void ExitPhone()
     {
