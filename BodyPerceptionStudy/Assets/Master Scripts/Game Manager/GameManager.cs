@@ -45,8 +45,8 @@ public class GameManager : MonoBehaviour
 
     void Update() {
         if(numSecondsLeft <= 0.0f && !gameDone) {
-            shutDown();
             gameDone = true;
+            shutDown();
         }
         else
 		{
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         string timestamp = System.DateTime.Today.ToShortDateString().Replace("/", "-");
         timestamp += " " + System.DateTime.Now.ToShortTimeString().Replace(":", "-");
         StatsManager.Instance.saveToCSV(timestamp);
-        SceneManager.LoadScene("AnthonyScene");
+        SceneManager.LoadScene("EndScene");
     }
 
     //checks for input
@@ -157,6 +157,11 @@ public class GameManager : MonoBehaviour
                 pressE.gameObject.SetActive(false);
             }
         }
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.I))
+        {
+            gameDone = true;
+            shutDown();
+        }
 
         yield return new WaitForSeconds(.01f);
         StartCoroutine(CheckForInput());
@@ -164,6 +169,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ChooseMeal()
     {
+        StopCoroutine(CheckForInput());
+
         meal.PopulateList(meal.fridgeFoods, meal.parent);
         meal.BeforeChooseMeal(meal.parent);
         yield return new WaitForEndOfFrame();
@@ -179,6 +186,7 @@ public class GameManager : MonoBehaviour
     //When interacting with the treadmill
     IEnumerator ExersciseTreadMill()
     {
+        StopCoroutine(CheckForInput());
         phone.SetActive(true);
         treadmillScreen.SetActive(true);
         player.GetComponent<FirstPersonController>().enabled = false;

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class backToMainMenu : MonoBehaviour
 {
+    public ButtonController cont;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class backToMainMenu : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.I))
         {
-
+            cont.ReturntoMain();
         }
     }
 }

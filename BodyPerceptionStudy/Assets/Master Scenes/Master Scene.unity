@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1451,36 +1451,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Book
       objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: text.sentences.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: text.sentences.Array.data[0]
-      value: "Wooo  fds ak  jd skj fjka dl fle 1\t "
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: text.sentences.Array.data[1]
-      value: e jkfds j  eljf ja lj ljasd
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: text.sentences.Array.data[2]
-      value: 'ad kfbcksd joej d,v sd k sa kj '
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: b
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: gm
-      value: 
-      objectReference: {fileID: 502758397}
     - target: {fileID: 448616, guid: dd63c090f4a9ca84a90829fa533a1889, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0095
@@ -1537,6 +1507,36 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: text.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: text.sentences.Array.data[0]
+      value: "Wooo  fds ak  jd skj fjka dl fle 1\t "
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: text.sentences.Array.data[1]
+      value: e jkfds j  eljf ja lj ljasd
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: text.sentences.Array.data[2]
+      value: 'ad kfbcksd joej d,v sd k sa kj '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: b
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 502758397}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd63c090f4a9ca84a90829fa533a1889, type: 3}
 --- !u!1 &307845122
@@ -2846,6 +2846,7 @@ MonoBehaviour:
   results: {fileID: 897629670}
   treadmillCaloriesPerHour: 100
   weightsCaloriesPerHour: 50
+  numPlayMinutes: 20
   pressE: {fileID: 2125106411}
   meal: {fileID: 1653830616}
   PublicCalories: {fileID: 2031065164}
@@ -3283,26 +3284,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Book
       objectReference: {fileID: 0}
-    - target: {fileID: 324499338479248578, guid: 1d01d3e47aa094e46a9b21e9bfe34386,
-        type: 3}
-      propertyPath: text.sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 324499338479248578, guid: 1d01d3e47aa094e46a9b21e9bfe34386,
-        type: 3}
-      propertyPath: text.sentences.Array.data[0]
-      value: sa jdkeo dnoieain ouans noia s nlksa  nas
-      objectReference: {fileID: 0}
-    - target: {fileID: 324499338479248578, guid: 1d01d3e47aa094e46a9b21e9bfe34386,
-        type: 3}
-      propertyPath: b
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 324499338479248578, guid: 1d01d3e47aa094e46a9b21e9bfe34386,
-        type: 3}
-      propertyPath: gm
-      value: 
-      objectReference: {fileID: 502758397}
     - target: {fileID: 417440, guid: 1d01d3e47aa094e46a9b21e9bfe34386, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0098
@@ -3359,6 +3340,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 324499338479248578, guid: 1d01d3e47aa094e46a9b21e9bfe34386,
+        type: 3}
+      propertyPath: text.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 324499338479248578, guid: 1d01d3e47aa094e46a9b21e9bfe34386,
+        type: 3}
+      propertyPath: text.sentences.Array.data[0]
+      value: sa jdkeo dnoieain ouans noia s nlksa  nas
+      objectReference: {fileID: 0}
+    - target: {fileID: 324499338479248578, guid: 1d01d3e47aa094e46a9b21e9bfe34386,
+        type: 3}
+      propertyPath: b
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 324499338479248578, guid: 1d01d3e47aa094e46a9b21e9bfe34386,
+        type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 502758397}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d01d3e47aa094e46a9b21e9bfe34386, type: 3}
 --- !u!1 &606736806
@@ -5884,7 +5885,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5892,14 +5892,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -8240,26 +8232,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Unreadable
       objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: text.sentences.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: text.sentences.Array.data[0]
-      value: I am a book!
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: text.sentences.Array.data[1]
-      value: I think that dogs are pretty cool.
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: text.sentences.Array.data[2]
-      value: I do not care for cats :)
-      objectReference: {fileID: 0}
     - target: {fileID: 448616, guid: dd63c090f4a9ca84a90829fa533a1889, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0118
@@ -8316,6 +8288,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: text.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: text.sentences.Array.data[0]
+      value: I am a book!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: text.sentences.Array.data[1]
+      value: I think that dogs are pretty cool.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: text.sentences.Array.data[2]
+      value: I do not care for cats :)
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd63c090f4a9ca84a90829fa533a1889, type: 3}
@@ -8334,26 +8326,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Book
       objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: text.sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: text.sentences.Array.data[0]
-      value: AHHHHHH dksf jadkfd kjfbkja jd y ad
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: b
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
-        type: 3}
-      propertyPath: gm
-      value: 
-      objectReference: {fileID: 502758397}
     - target: {fileID: 448616, guid: dd63c090f4a9ca84a90829fa533a1889, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0015
@@ -8410,6 +8382,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: text.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: text.sentences.Array.data[0]
+      value: AHHHHHH dksf jadkfd kjfbkja jd y ad
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: b
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844418389419129202, guid: dd63c090f4a9ca84a90829fa533a1889,
+        type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 502758397}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd63c090f4a9ca84a90829fa533a1889, type: 3}
 --- !u!1 &1308393164

@@ -1,6 +1,6 @@
 # BodyPerceptionStudy
 # HOW TO USE THE STATS MANAGER
-
+At any point, enter Control + shift + I, to end the game, or return from the end scren to the main menu
 ## INSTANCE
 While scripting, to retrieve the static instace of the `StatsManager` object, call:
 `StatsManager.Instance`

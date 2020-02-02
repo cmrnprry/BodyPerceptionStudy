@@ -42,6 +42,8 @@ public class ButtonController : MonoBehaviour
     public void ReturntoMain()
     {
         SceneManager.LoadScene("Start");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     //Exits the Phone App
