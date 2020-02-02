@@ -112,6 +112,7 @@ public class ButtonController : MonoBehaviour
 
         //sends data to the stats manager
         StatsManager.Instance.addExercise("treadmill", trueCals);
+        gm.confirm = true;
 
         //shows the results screen
         ShowResults();

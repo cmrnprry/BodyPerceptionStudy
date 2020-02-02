@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
     public ChooseAMeal meal;
 
     public TextMeshProUGUI PublicCalories;
+
+    public bool confirm = false;
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +92,25 @@ public class GameManager : MonoBehaviour
                     StartCoroutine(ChooseMeal());
                 }
             }
+            //Check for if the player is looking at the treadmill
+            if (hit.transform.tag == "Tread")
+            {
+                Debug.Log("Press E to read book");
+                pressE.text = "Press E to run on the treadmill";
+                pressE.gameObject.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("The E Key was pressed: Treadmil");
+
+                    // Tell stats the fridge has been opened.
+                    //StatsManager.Instance.addExercise(string exerciseName, int calories)
+
+                    //display text of that object
+                    confirm = false;
+                    StartCoroutine(ExersciseTreadMill());
+                }
+            }
             else
             {
                 pressE.gameObject.SetActive(false);
@@ -130,5 +152,30 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(WaitUntil(KeyCode.Mouse0));
         meal.AfterChooseMeal();
     }
+
+    public IEnumerator WaitUntilButton()
+    {
+        Debug.Log("wait");
+        while (!confirm)
+            yield return null;
+
+        Debug.Log("wait end");
+    }
+
+    IEnumerator ExersciseTreadMill()
+    {
+        phone.SetActive(true);
+        treadmillScreen.SetActive(true);
+        player.GetComponent<FirstPersonController>().enabled = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        
+        yield return StartCoroutine(WaitUntilButton());
+
+        player.GetComponent<FirstPersonController>().enabled = true;
+        phone.SetActive(false);
+        treadmillScreen.SetActive(false);
+    }
+
 
 }

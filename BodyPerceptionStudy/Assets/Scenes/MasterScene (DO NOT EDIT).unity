@@ -1219,7 +1219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &241821399
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3068,6 +3068,7 @@ MonoBehaviour:
   pressE: {fileID: 1488368171}
   meal: {fileID: 1653830616}
   PublicCalories: {fileID: 1503824054}
+  confirm: 0
 --- !u!4 &502758398
 Transform:
   m_ObjectHideFlags: 0
@@ -9604,12 +9605,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616094322}
   m_CullTransparentMesh: 0
+--- !u!1 &1625637552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b67640ed687502d47bc619be3ccd8f8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2087706722}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1625637553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: b67640ed687502d47bc619be3ccd8f8a,
     type: 3}
   m_PrefabInstance: {fileID: 2087706722}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1625637554
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625637552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -5495902117074765545, guid: b67640ed687502d47bc619be3ccd8f8a, type: 3}
 --- !u!1 &1639791927
 GameObject:
   m_ObjectHideFlags: 0
@@ -12352,6 +12373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: treadmill
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b67640ed687502d47bc619be3ccd8f8a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tread
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b67640ed687502d47bc619be3ccd8f8a,
         type: 3}
