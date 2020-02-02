@@ -37,6 +37,9 @@ To be used whenever the phone is opened:
 To be used whenever the player checks calories:
 `public void checkedCals();`
 
+To get the current number of calories:
+`public void getCurCalories()`
+
 To be used whenever the player opens the food app:
 `public void openedFoodApp();`
 
