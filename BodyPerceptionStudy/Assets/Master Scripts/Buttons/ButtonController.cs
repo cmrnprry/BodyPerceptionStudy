@@ -67,10 +67,16 @@ public class ButtonController : MonoBehaviour
 
     public void PhoneHome()
     {
+        gm.orderFoodScreen.SetActive(false);
         gm.resultsScreen.SetActive(false);
         gm.treadmillScreen.SetActive(false);
         gm.weightsScreen.SetActive(false);
         gm.exerciseScreen.SetActive(false);
+    }
+
+    public void turnOffOrder()
+    {
+        gm.orderFoodScreen.SetActive(false);
     }
 
     //Shows the exercise menu 
@@ -80,6 +86,15 @@ public class ButtonController : MonoBehaviour
         gm.treadmillScreen.SetActive(false);
         gm.weightsScreen.SetActive(false);
         gm.exerciseScreen.SetActive(true);
+    }
+
+    public void OrderMainMenu()
+    {
+        StartCoroutine(gm.OrderMeal());
+        gm.resultsScreen.SetActive(false);
+        gm.treadmillScreen.SetActive(false);
+        gm.weightsScreen.SetActive(false);
+        gm.orderFoodScreen.SetActive(true);
     }
 
     //Treadmill Exercise

@@ -13,25 +13,31 @@ public class FoodItem
 }
 
 
+
 public class ChooseAMeal : MonoBehaviour
 {
     // List of foods serialized in the Inspector
     public List<FoodItem> foods;
+
+    // List of food to order from
+    public List<FoodItem> orderableFoods;
     public GameObject button;
+
+    //The parents for the refridgerator food
     public GameObject parent;
+
+    // The parent object for the Order Foods
+    public GameObject orderParent; 
     public GameManager gm;
 
     // Do not want multiple canvases. 
-    void Start()
-    {
-        PopulateList();
-    }
 
     //Populates UI elements with the food options and their calories
-    void PopulateList()
+    public void PopulateList(List<FoodItem> foods, GameObject parent)
     {
         foreach (var food in foods)
         {
+            Debug.Log(food);
             var choice = Instantiate(button);
 
             var x = choice.GetComponent<Button>();
@@ -41,7 +47,7 @@ public class ChooseAMeal : MonoBehaviour
         }
     }
 
-    public void BeforeChooseMeal()
+    public void BeforeChooseMeal(GameObject parent)
     {
         parent.SetActive(true);
         gm.player.GetComponent<FirstPersonController>().enabled = false;
@@ -49,10 +55,11 @@ public class ChooseAMeal : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void AfterChooseMeal()
+    public void AfterChooseMeal(GameObject parent)
     {
         gm.player.GetComponent<FirstPersonController>().enabled = true;
         parent.SetActive(false);
+        gm.orderFoodScreen.SetActive(false);
     }
 
 
