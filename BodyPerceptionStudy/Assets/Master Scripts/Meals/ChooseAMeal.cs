@@ -17,7 +17,7 @@ public class FoodItem
 public class ChooseAMeal : MonoBehaviour
 {
     // List of foods serialized in the Inspector
-    public List<FoodItem> foods;
+    public List<FoodItem> fridgeFoods;
 
     // List of food to order from
     public List<FoodItem> orderableFoods;
@@ -37,7 +37,6 @@ public class ChooseAMeal : MonoBehaviour
     {
         foreach (var food in foods)
         {
-            Debug.Log(food);
             var choice = Instantiate(button);
 
             var x = choice.GetComponent<Button>();
@@ -59,8 +58,20 @@ public class ChooseAMeal : MonoBehaviour
     {
         if (parent.name == "Fridge Holder")
             gm.player.GetComponent<FirstPersonController>().enabled = true;
+        DePopulateList(parent);
         parent.SetActive(false);
         gm.orderFoodScreen.SetActive(false);
+    }
+
+    public void DePopulateList(GameObject parent)
+    {
+        Button[] buttons = parent.GetComponentsInChildren<Button>(true);
+        Debug.Log(buttons.Length);
+        foreach (Button b in buttons)
+        {
+            Destroy(b.gameObject);
+            Debug.Log("Destroy: " + b.name);
+        }
     }
 
 

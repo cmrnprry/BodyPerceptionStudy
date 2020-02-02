@@ -28,16 +28,6 @@ public class ButtonController : MonoBehaviour
 
     }
 
-    public void ChooseFood()
-    {
-        var text = GetComponentInChildren<TextMeshProUGUI>().text;
-        string[] words = text.Split(' ');
-        var foodName = text[0];
-        var calories = text[2];
-        
-        StatsManager.Instance.addFood(foodName.ToString(), StatsManager.orderType.FRIDGE, calories);
-    }
-
     void OnApplicationQuit()
     {
         StatsManager.Instance.saveToCSV("runResults");

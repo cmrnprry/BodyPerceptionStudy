@@ -37,17 +37,14 @@ To be used whenever the phone is opened:
 To be used whenever the player checks calories:
 `public void checkedCals();`
 
-To get the current number of calories:
-`public void getCurCalories()`
-
 To be used whenever the player opens the food app:
 `public void openedFoodApp();`
 
 To be used whenever the fridge is opened:
 `public void openedFridge();`
 
-# How to Set Up Different Meals in Fridge or in Phone
-Click on the Meal Manager game object. Under Choose A Meal (Script) there will be two labels, one titled `Fridge Foods`, and one titled `Orderable Foods`. Clicking on either will bring down a field titled `Size`, when you can enter the number of food items you want. After entering in the amount you want, that number of elements will appear, and you will be able to enter the food name and the number of calories it has.
+# How to Set Up Different Meals in Fridge
+Click on the Refridgerator Manager game object. Under Choose A Meal (Script) there will be a label titled Foods, click that and in size, enter how many foods the participent will be able to see when they open the fridge. This will then bring up lists that can be populated with the food name and amount of calories.
 
 
 
