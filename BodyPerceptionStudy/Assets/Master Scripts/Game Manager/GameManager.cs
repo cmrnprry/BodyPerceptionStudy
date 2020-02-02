@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject treadmillScreen;
     public GameObject weightsScreen;
     public GameObject resultsScreen;
+    public GameObject orderFoodScreen; 
     public TMPro.TMP_Dropdown treadmillDropdown;
     public TMPro.TMP_Dropdown weightsDropdown;
     public TMPro.TextMeshProUGUI results;
@@ -126,9 +127,18 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ChooseMeal()
     {
-        meal.BeforeChooseMeal();
+        meal.PopulateList(meal.foods, meal.parent);
+        meal.BeforeChooseMeal(meal.parent);
         yield return StartCoroutine(WaitUntil(KeyCode.Mouse0));
-        meal.AfterChooseMeal();
+        meal.AfterChooseMeal(meal.parent);
+    }
+
+    public IEnumerator OrderMeal()
+    {
+        meal.PopulateList(meal.orderableFoods, meal.orderParent);
+        meal.BeforeChooseMeal(meal.orderParent);
+        yield return StartCoroutine(WaitUntil(KeyCode.Mouse0));
+        meal.AfterChooseMeal(meal.orderParent);
     }
 
 }
