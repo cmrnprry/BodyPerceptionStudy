@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public ChooseAMeal meal;
 
     public TextMeshProUGUI PublicCalories;
+    //public int distance;
 
     public bool confirm = false;
 
@@ -163,18 +164,16 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ChooseMeal()
     {
-        meal.PopulateList(meal.foods, meal.parent);
+        meal.PopulateList(meal.fridgeFoods, meal.parent);
         meal.BeforeChooseMeal(meal.parent);
-        yield return StartCoroutine(WaitUntil(KeyCode.Mouse0));
-        meal.AfterChooseMeal(meal.parent);
+        yield return new WaitForEndOfFrame();
     }
 
     public IEnumerator OrderMeal()
     {
         meal.PopulateList(meal.orderableFoods, meal.orderParent);
         meal.BeforeChooseMeal(meal.orderParent);
-        yield return StartCoroutine(WaitUntil(KeyCode.Mouse0));
-        meal.AfterChooseMeal(meal.orderParent);
+        yield return new WaitForEndOfFrame();
     }
 
     //When interacting with the treadmill
@@ -190,6 +189,7 @@ public class GameManager : MonoBehaviour
 
         player.GetComponent<FirstPersonController>().enabled = true;
         treadmillScreen.SetActive(false);
+        resultsScreen.SetActive(false);
         phone.SetActive(false);
         
     }

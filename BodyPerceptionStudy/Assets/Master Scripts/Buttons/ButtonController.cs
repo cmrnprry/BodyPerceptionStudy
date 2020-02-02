@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
@@ -28,14 +29,19 @@ public class ButtonController : MonoBehaviour
 
     }
 
-    public void ChooseFood()
+    public void StartGame()
     {
-        var text = GetComponentInChildren<TextMeshProUGUI>().text;
-        string[] words = text.Split(' ');
-        var foodName = text[0];
-        var calories = text[2];
-        
-        StatsManager.Instance.addFood(foodName.ToString(), StatsManager.orderType.FRIDGE, calories);
+        SceneManager.LoadScene("Master Scene");
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void ReturntoMain()
+    {
+        SceneManager.LoadScene("Start");
     }
 
     //Exits the Phone App
