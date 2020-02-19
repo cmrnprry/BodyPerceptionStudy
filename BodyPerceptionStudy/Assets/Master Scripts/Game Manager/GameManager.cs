@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject treadmillScreen;
     public GameObject weightsScreen;
     public GameObject resultsScreen;
-    public GameObject orderFoodScreen; 
+    public GameObject orderFoodScreen;
+    public GameObject gameScreen;
     public TMPro.TMP_Dropdown treadmillDropdown;
     public TMPro.TMP_Dropdown weightsDropdown;
     public TMPro.TextMeshProUGUI results;
@@ -220,6 +221,17 @@ public class GameManager : MonoBehaviour
             yield return null;
 
         Debug.Log("wait end");
+    }
+
+    public IEnumerator StartSpaceInvaders()
+    {
+
+        yield return new WaitForEndOfFrame();
+    }
+
+    void ShowScreen()
+    {
+
     }
 
 }

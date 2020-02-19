@@ -46,11 +46,25 @@ public class ButtonController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
+    //screen that holds the games
+    public void GoToGameScreen()
+    {
+        gm.gameScreen.SetActive(true);
+    }
+
+    public void SpaceInvaders()
+    {
+        gm.gameScreen.SetActive(true);
+
+        StartCoroutine(gm.StartSpaceInvaders());
+    }
+
     //Exits the Phone App
     public void ExitPhone()
     {
         gm.phone.SetActive(false);
         gm.orderFoodScreen.SetActive(false);
+        gm.gameScreen.SetActive(false);
         gm.resultsScreen.SetActive(false);
         gm.treadmillScreen.SetActive(false);
         gm.weightsScreen.SetActive(false);
