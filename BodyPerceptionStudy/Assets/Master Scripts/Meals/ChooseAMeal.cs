@@ -38,8 +38,15 @@ public class ChooseAMeal : MonoBehaviour
         foreach (var food in foods)
         {
             var choice = Instantiate(button);
+            if (parent.name == "Fridge Holder")
+                choice.GetComponent<ChooseFood>().type = "fridge";
+            if (parent.name == "OrderHolder")
+                choice.GetComponent<ChooseFood>().type = "app";
+
+            Debug.Log(choice.GetComponent<ChooseFood>().type);
 
             var x = choice.GetComponent<Button>();
+            
             x.GetComponentInChildren<TextMeshProUGUI>().text = food.name + " - " + food.calories;
             
             choice.transform.parent = parent.transform;
@@ -48,6 +55,7 @@ public class ChooseAMeal : MonoBehaviour
 
     public void BeforeChooseMeal(GameObject parent)
     {
+        
         parent.SetActive(true);
         gm.player.GetComponent<FirstPersonController>().enabled = false;
         Cursor.visible = true;
@@ -56,8 +64,10 @@ public class ChooseAMeal : MonoBehaviour
 
     public void AfterChooseMeal(GameObject parent)
     {
+        Debug.Log("after: " + parent.name);
         if (parent.name == "Fridge Holder")
             gm.player.GetComponent<FirstPersonController>().enabled = true;
+        
         DePopulateList(parent);
         parent.SetActive(false);
         gm.orderFoodScreen.SetActive(false);
@@ -65,6 +75,7 @@ public class ChooseAMeal : MonoBehaviour
 
     public void DePopulateList(GameObject parent)
     {
+        Debug.Log("depop: " + parent.name);
         Button[] buttons = parent.GetComponentsInChildren<Button>(true);
         Debug.Log(buttons.Length);
         foreach (Button b in buttons)

@@ -10,6 +10,8 @@ public class ChooseFood : MonoBehaviour
     private Button b;
     private ChooseAMeal meal;
 
+    public string type;
+
     void Awake()
     {
         Debug.Log("start");
@@ -28,8 +30,18 @@ public class ChooseFood : MonoBehaviour
         var foodName = words[0];
         var calories = words[2];
 
+        if(type == "fridge")
+        {
+            StatsManager.Instance.addFood(foodName.ToString(), StatsManager.orderType.FRIDGE, Int32.Parse(calories));
+            meal.AfterChooseMeal(meal.parent);
+        }
+
+        else if (type == "app")
+        {
+            StatsManager.Instance.addFood(foodName.ToString(), StatsManager.orderType.APP, Int32.Parse(calories));
+            meal.AfterChooseMeal(meal.orderParent);
+        }
         Debug.Log("Number of calories: " + calories);
-        StatsManager.Instance.addFood(foodName.ToString(), StatsManager.orderType.FRIDGE, Int32.Parse(calories));
-        meal.AfterChooseMeal(meal.parent);
+        
     }
 }

@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -17.39, y: 5.11}
+  m_SizeDelta: {x: 125.23, y: 40.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6413860364071992949
 CanvasRenderer:
@@ -131,8 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a073b5bfc39bc440af00f209d279d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meal: {fileID: 0}
-  gm: {fileID: 0}
+  type: 
 --- !u!1 &6701392060335144518
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,12 +223,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26.85
+  m_fontSize: 20
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 20
   m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 0
@@ -265,13 +264,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8969953038024642700}
-    characterCount: 0
+    characterCount: 6
     spriteCount: 0
     spaceCount: 0
-    wordCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

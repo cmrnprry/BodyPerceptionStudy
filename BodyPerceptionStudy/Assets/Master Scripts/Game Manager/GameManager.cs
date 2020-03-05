@@ -190,6 +190,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator OrderMeal()
     {
+        Debug.Log(meal.orderParent.name);
         meal.PopulateList(meal.orderableFoods, meal.orderParent);
         meal.BeforeChooseMeal(meal.orderParent);
         yield return new WaitForEndOfFrame();
