@@ -1,42 +1,52 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
-    private Rigidbody rb;
-    public float speed = 10.0f;
-    public float leftBound, RightBound;
-    private float translation;
+    public int health = 3;
+    public int scoreVal = 0;
+
+    private Rigidbody2D rb;
+
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private List<Image> arr;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
-       
-
-        StartCoroutine(Movement());
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
-    IEnumerator Movement()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        //Move Left
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            Vector3 temp = new Vector3((-1 * speed * Time.deltaTime), 0, 0);
-            this.gameObject.transform.position += temp;
-            Debug.Log("move left");
+        var tag = other.gameObject.tag;
 
-        }
-        //Move Right
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        if (tag == "EB")
         {
-            translation = Input.GetAxis("Vertical");
-            this.gameObject.transform.position = new Vector3(speed * Time.deltaTime, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
-            Debug.Log("move Right");
+            other.gameObject.SetActive(false);
+            DecreaseHealth();
+        }
+    }
+
+    public void DecreaseHealth()
+    {
+        if (health < 0)
+        {
+            //TODO: Game Over
+            return;
         }
 
-        yield return new WaitForEndOfFrame();
-        StartCoroutine(Movement());
+        arr[health - 1].gameObject.SetActive(false);
+        health--;
+    }
+
+    public void KeepScore(int value)
+    {
+        scoreVal += value;
+        scoreText.text = "Score: " + scoreVal;
     }
 }

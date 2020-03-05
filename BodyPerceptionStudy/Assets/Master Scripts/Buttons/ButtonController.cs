@@ -54,9 +54,9 @@ public class ButtonController : MonoBehaviour
 
     public void SpaceInvaders()
     {
-        gm.gameScreen.SetActive(true);
-
-        StartCoroutine(gm.StartSpaceInvaders());
+        gm.TeleportPlayer(1);
+        gm.UI.SetActive(false);
+        gm.StartSpaceInvaders();
     }
 
     //Exits the Phone App

@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Book
+  - Unreadable
+  - Fridge
+  - Tread
+  - StatsManager
+  - Bullet
+  - Enemy
+  - EB
   layers:
   - Default
   - TransparentFX
@@ -13,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Phone Game
   - 
   - 
   - 

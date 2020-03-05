@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject resultsScreen;
     public GameObject orderFoodScreen;
     public GameObject gameScreen;
+    public GameObject UI;
     public TMPro.TMP_Dropdown treadmillDropdown;
     public TMPro.TMP_Dropdown weightsDropdown;
     public TMPro.TextMeshProUGUI results;
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
     //public int distance;
 
     public bool confirm = false;
+
+    [SerializeField] private SIManager si;
 
     // Start is called before the first frame update
     void Start()
@@ -223,15 +226,27 @@ public class GameManager : MonoBehaviour
         Debug.Log("wait end");
     }
 
-    public IEnumerator StartSpaceInvaders()
+    public void StartSpaceInvaders()
     {
-
-        yield return new WaitForEndOfFrame();
+        si.StartGame();
     }
 
-    void ShowScreen()
+    //teleports the player to play phone games
+    //0 is back to start
+    //1 is space invaders
+    public void TeleportPlayer(int game)
     {
-
+        player.transform.rotation = new Quaternion(0, 0, 0, 0);
+        switch (game)
+        {
+            case 0:
+                player.transform.position = new Vector3(0, 4.84f, -12.39f);
+                UI.SetActive(true);
+                break;
+            case 1:
+                player.transform.position = new Vector3(-87.8f, 4.4f, -11.8f);
+                break;
+        }
     }
 
 }
