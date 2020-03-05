@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        player.enabled = false;
         phone.SetActive(false);
         StartCoroutine(CheckForInput());
         numSecondsLeft = (float)(numPlayMinutes * 60);
@@ -113,9 +116,14 @@ public class GameManager : MonoBehaviour
                 {
                     Debug.Log("The E Key was pressed: Books");
 
+                    //Stops courotine
+                    StopCoroutine(CheckForInput());
+
                     //display text of that object
                     book = hit.transform.gameObject;
                     book.gameObject.GetComponent<TextTrigger>().TriggerDialogue();
+                   
+                    
                 }
             }
             //Check to see if the player is looking at the fridge
@@ -228,6 +236,7 @@ public class GameManager : MonoBehaviour
 
     public void StartSpaceInvaders()
     {
+        StatsManager.Instance.checkedGame();
         si.StartGame();
     }
 

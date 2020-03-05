@@ -23,6 +23,7 @@ public class StatsManager : MonoBehaviour
 
     //Checks stats
     private int numPhoneChecks = 0;
+    private int numGamePlayed = 0;
     private int numCalChecks = 0;
     private int numFoodAppOpens = 0;
     // private int numFoodAppOrders = numOfType(orderType.APP);
@@ -103,6 +104,12 @@ public class StatsManager : MonoBehaviour
     {
         numPhoneChecks++;
     }
+
+    public void checkedGame()
+    {
+        numGamePlayed++;
+    }
+
     public void checkedCals()
     {
         numCalChecks++;

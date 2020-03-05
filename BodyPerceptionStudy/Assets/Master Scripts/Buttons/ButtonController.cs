@@ -8,6 +8,15 @@ public class ButtonController : MonoBehaviour
 {
 
     public GameManager gm;
+    [SerializeField] private GameObject t;
+
+    public void ClosePlanel()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        gm.player.enabled = true;
+        t.SetActive(false);
+    }
 
     public void Agree()
     {
