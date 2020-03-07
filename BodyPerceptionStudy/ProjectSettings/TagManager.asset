@@ -12,6 +12,7 @@ TagManager:
   - Bullet
   - Enemy
   - EB
+  - Poster
   layers:
   - Default
   - TransparentFX
