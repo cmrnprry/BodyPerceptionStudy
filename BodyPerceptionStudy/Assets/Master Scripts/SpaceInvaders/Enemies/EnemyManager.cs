@@ -48,7 +48,10 @@ public class EnemyManager : MonoBehaviour
         Destroy(b);
     }
 
-
+    public GameObject getBullet()
+    {
+        return enemyBullet;
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         var tag = other.gameObject.tag;
@@ -69,7 +72,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    void DeleteBullets()
+    public void DeleteBullets()
     {
         foreach(var b in list)
         {

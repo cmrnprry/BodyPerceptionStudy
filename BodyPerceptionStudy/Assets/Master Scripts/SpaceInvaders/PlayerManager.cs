@@ -9,17 +9,9 @@ public class PlayerManager : MonoBehaviour
     public int health = 3;
     public int scoreVal = 0;
 
-    private Rigidbody2D rb;
-
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private List<Image> arr;
      
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = this.GetComponent<Rigidbody2D>();
-    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,14 +26,22 @@ public class PlayerManager : MonoBehaviour
 
     public void DecreaseHealth()
     {
-        if (health < 0)
+        if (health <= 0)
         {
-            //TODO: Game Over
             return;
         }
 
         arr[health - 1].gameObject.SetActive(false);
         health--;
+    }
+
+    public void Reset()
+    {
+        health = 3;
+        arr[0].gameObject.SetActive(true);
+        arr[1].gameObject.SetActive(true);
+        arr[2].gameObject.SetActive(true);
+        scoreText.text = "Score: 0";
     }
 
     public void KeepScore(int value)

@@ -9,6 +9,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class GameManager : MonoBehaviour
 {
     public UnityStandardAssets.Characters.FirstPerson.FirstPersonController player;
+    public GameObject playerObject;
     public GameObject phone;
     public GameObject exerciseScreen;
     public GameObject treadmillScreen;
@@ -97,6 +98,7 @@ public class GameManager : MonoBehaviour
         {
             StatsManager.Instance.checkedPhone();
             phone.SetActive(true);
+            
             player.enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -254,7 +256,9 @@ public class GameManager : MonoBehaviour
     //1 is space invaders
     public void TeleportPlayer(int game)
     {
-        player.transform.rotation = Quaternion.identity;
+        playerObject.transform.rotation = Quaternion.identity;
+        playerObject.transform.GetChild(0).gameObject.transform.rotation = Quaternion.identity;
+        playerObject.GetComponentInChildren<Transform>().rotation = Quaternion.identity;
         switch (game)
         {
             case 0:

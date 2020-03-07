@@ -15,6 +15,7 @@ public class SIManager : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject player;
     private PlayerManager pm;
+    private List<GameObject> enemies = new List<GameObject>();
     [SerializeField] private List<GameObject> enemyTypes;
     [SerializeField] private Transform bulletLoc;
     [SerializeField] private GameObject UI;
@@ -32,6 +33,25 @@ public class SIManager : MonoBehaviour
         StartCoroutine(GameOver());
     }
 
+    void ResetGame()
+    {
+        player.transform.position = new Vector3(-86.96f, 1.172527f, 0);
+        pm.scoreVal = 0;
+        
+        foreach (var e in enemies)
+        {
+            if (e.GetComponent<EnemyManager>().getBullet() != null)
+            {
+                e.GetComponent<EnemyManager>().DeleteBullets();
+            }
+                
+            Destroy(e);
+        }
+
+        UI.SetActive(false);
+        Debug.Log("reset");
+    }
+
     void StopGame()
     {
        
@@ -39,8 +59,9 @@ public class SIManager : MonoBehaviour
         StopCoroutine(PlayerShooting());
         StopCoroutine(SpawnEnemy());
         StopCoroutine(GameOver());
-        UI.SetActive(false); 
 
+        ResetGame();
+        
     }
 
     IEnumerator GameOver()
@@ -49,7 +70,7 @@ public class SIManager : MonoBehaviour
         {
             gm.TeleportPlayer(0);
             UI.SetActive(false);
-
+            pm.Reset();
             StopGame();
             yield break;
         }
@@ -121,6 +142,7 @@ public class SIManager : MonoBehaviour
         DetermineDificulty();
         var spawnPoint = new Vector3(Random.Range(leftSpawn, rightSpawn), 15.0f, 0);
         var e = Instantiate(ChooseEnemy(), spawnPoint, Quaternion.identity);
+        enemies.Add(e);
         StartCoroutine(EnemyMovement(e));
 
         yield return new WaitForSeconds(spawnTime);
@@ -195,6 +217,7 @@ public class SIManager : MonoBehaviour
             yield return null;
         }
 
+        enemies.Remove(e);
         Destroy(e);
     }
 }
