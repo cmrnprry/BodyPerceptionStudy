@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class ButtonController : MonoBehaviour
 {
@@ -211,5 +212,17 @@ public class ButtonController : MonoBehaviour
         gm.treadmillScreen.SetActive(false);
         gm.weightsScreen.SetActive(false);
         gm.resultsScreen.SetActive(true);
+    }
+
+    public void ShowFoodResults()
+    {
+        if (gm.orderFoodScreen.activeSelf == false)
+        {
+            gm.phone.SetActive(false);
+            gm.player.GetComponent<FirstPersonController>().enabled = true;
+        }
+
+        gm.foodResultsScreen.SetActive(false);
+        gm.orderFoodScreen.SetActive(false);
     }
 }

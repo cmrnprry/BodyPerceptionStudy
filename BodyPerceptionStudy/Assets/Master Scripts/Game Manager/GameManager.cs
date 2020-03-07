@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject treadmillScreen;
     public GameObject weightsScreen;
     public GameObject resultsScreen;
+    public GameObject foodResultsScreen;
+    public TextMeshProUGUI foodResultsText;
     public GameObject orderFoodScreen;
     public GameObject gameScreen;
     public GameObject UI;

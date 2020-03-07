@@ -33,13 +33,13 @@ public class ChooseFood : MonoBehaviour
         if(type == "fridge")
         {
             StatsManager.Instance.addFood(foodName.ToString(), StatsManager.orderType.FRIDGE, Int32.Parse(calories));
-            meal.AfterChooseMeal(meal.parent);
+            meal.AfterChooseMeal(meal.parent, calories);
         }
 
         else if (type == "app")
         {
             StatsManager.Instance.addFood(foodName.ToString(), StatsManager.orderType.APP, Int32.Parse(calories));
-            meal.AfterChooseMeal(meal.orderParent);
+            meal.AfterChooseMeal(meal.orderParent, calories);
         }
         Debug.Log("Number of calories: " + calories);
         

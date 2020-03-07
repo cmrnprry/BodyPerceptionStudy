@@ -62,15 +62,22 @@ public class ChooseAMeal : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void AfterChooseMeal(GameObject parent)
+    public void AfterChooseMeal(GameObject parent, string cal)
     {
         Debug.Log("after: " + parent.name);
         if (parent.name == "Fridge Holder")
-            gm.player.GetComponent<FirstPersonController>().enabled = true;
+        {
+            gm.phone.SetActive(true);
+            gm.orderFoodScreen.SetActive(false);
+        }
+           
         
         DePopulateList(parent);
         parent.SetActive(false);
-        gm.orderFoodScreen.SetActive(false);
+
+        gm.foodResultsText.text = "You ate " + cal + " calories.";
+        gm.foodResultsScreen.SetActive(true);
+       
     }
 
     public void DePopulateList(GameObject parent)
