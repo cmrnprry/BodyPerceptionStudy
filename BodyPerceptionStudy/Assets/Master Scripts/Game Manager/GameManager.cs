@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public bool confirm = false;
 
-    [SerializeField] private SIManager si;
+    public GameObject si;
     [SerializeField] private float maxDistance;
 
     // Start is called before the first frame update
@@ -100,6 +100,8 @@ public class GameManager : MonoBehaviour
             player.enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
+            Debug.Log("phone");
         }
 
 
@@ -240,8 +242,11 @@ public class GameManager : MonoBehaviour
 
     public void StartSpaceInvaders()
     {
+        TeleportPlayer(1);
+        UI.SetActive(false);
         StatsManager.Instance.checkedGame();
-        si.StartGame();
+        si.SetActive(true);
+        si.GetComponentInChildren<SIManager>().StartGame();
     }
 
     //teleports the player to play phone games
@@ -249,7 +254,7 @@ public class GameManager : MonoBehaviour
     //1 is space invaders
     public void TeleportPlayer(int game)
     {
-        player.transform.rotation = new Quaternion(0, 0, 0, 0);
+        player.transform.rotation = Quaternion.identity;
         switch (game)
         {
             case 0:

@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private List<Image> arr;
-    
+     
 
     // Start is called before the first frame update
     void Start()

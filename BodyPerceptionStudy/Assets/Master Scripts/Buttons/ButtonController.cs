@@ -64,8 +64,6 @@ public class ButtonController : MonoBehaviour
 
     public void SpaceInvaders()
     {
-        gm.TeleportPlayer(1);
-        gm.UI.SetActive(false);
         gm.StartSpaceInvaders();
     }
 

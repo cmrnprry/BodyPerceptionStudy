@@ -32,13 +32,26 @@ public class SIManager : MonoBehaviour
         StartCoroutine(GameOver());
     }
 
+    void StopGame()
+    {
+       
+        StopCoroutine(PlayerMovement());
+        StopCoroutine(PlayerShooting());
+        StopCoroutine(SpawnEnemy());
+        StopCoroutine(GameOver());
+        UI.SetActive(false); 
+
+    }
+
     IEnumerator GameOver()
     {
         if (pm.health <= 0)
         {
-            StopAllCoroutines();
             gm.TeleportPlayer(0);
             UI.SetActive(false);
+
+            StopGame();
+            yield break;
         }
 
         yield return new WaitForEndOfFrame();
