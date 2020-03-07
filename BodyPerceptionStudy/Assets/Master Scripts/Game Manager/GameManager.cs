@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public bool confirm = false;
 
     [SerializeField] private SIManager si;
+    [SerializeField] private float maxDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -103,7 +104,7 @@ public class GameManager : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, maxDistance))
         {
             //Check for if the player is looking at readable books
             if (hit.transform.tag == "Book")
