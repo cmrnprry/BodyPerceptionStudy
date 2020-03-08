@@ -224,7 +224,7 @@ public class StatsManager : MonoBehaviour
         for (int index = 0; index < length; index++)
             sb.AppendLine(string.Join(delimiter, output[index]));
 
-        string filePath = Application.dataPath + "/RESULTS/" + fileName + ".csv";
+        string filePath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "/" + fileName + ".csv";
 
         StreamWriter outStream = System.IO.File.CreateText(filePath);
         outStream.WriteLine(sb);

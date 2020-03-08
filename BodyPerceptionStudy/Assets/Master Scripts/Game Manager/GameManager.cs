@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
 	{
         string timestamp = System.DateTime.Today.ToShortDateString().Replace("/", "-");
         timestamp += " " + System.DateTime.Now.ToShortTimeString().Replace(":", "-");
+        timestamp = timestamp.Replace(" ", "");
         StatsManager.Instance.saveToCSV(timestamp);
         SceneManager.LoadScene("EndScene");
     }
