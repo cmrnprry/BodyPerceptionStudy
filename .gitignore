@@ -60,3 +60,4 @@ crashlytics-build.properties
 
 *.csv
 BodyPerceptionStudy/Assets/RESULTS/runResults.csv
+*.meta
