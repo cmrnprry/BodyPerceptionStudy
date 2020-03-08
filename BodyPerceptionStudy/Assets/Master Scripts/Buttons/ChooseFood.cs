@@ -41,6 +41,12 @@ public class ChooseFood : MonoBehaviour
             StatsManager.Instance.addFood(foodName.ToString(), StatsManager.orderType.APP, Int32.Parse(calories));
             meal.AfterChooseMeal(meal.orderParent, calories);
         }
+
+        else if (type == "pantry")
+        {
+            StatsManager.Instance.addFood(foodName.ToString(), StatsManager.orderType.PANTRY, Int32.Parse(calories));
+            meal.AfterChooseMeal(meal.pantryParent, calories);
+        }
         Debug.Log("Number of calories: " + calories);
         
     }
