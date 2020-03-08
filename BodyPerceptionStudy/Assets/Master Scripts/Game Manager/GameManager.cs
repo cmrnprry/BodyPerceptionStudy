@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     private GameObject book;
 
+    private GameObject poster;
+
     public ChooseAMeal meal;
 
     public TextMeshProUGUI PublicCalories;
@@ -129,6 +131,24 @@ public class GameManager : MonoBehaviour
                     //display text of that object
                     book = hit.transform.gameObject;
                     book.gameObject.GetComponent<TextTrigger>().TriggerDialogue();
+                }
+            }
+            else if(hit.transform.tag == "Poster")
+            {
+                pressE.text = "Press E to read poster";
+                pressE.gameObject.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("The E Key was pressed: Posters");
+
+                    //Stops courotine
+                    StopCoroutine(CheckForInput());
+
+                    //display text of that object
+                    poster = hit.transform.gameObject;
+                    poster.gameObject.GetComponent<TextTrigger>().TriggerDialogue();
+
+
                 }
             }
             //Check to see if the player is looking at the fridge

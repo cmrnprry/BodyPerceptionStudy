@@ -21,20 +21,23 @@ public class ButtonController : MonoBehaviour
 
     public void Agree()
     {
-        StatsManager.Instance.addBook("Name", StatsManager.questionResult.AGREE);
+        string bookName = TextManager.readableName;
+        StatsManager.Instance.addBook(bookName, StatsManager.questionResult.AGREE);
         print("Agree");
     }
 
     public void Disagree()
     {
-        StatsManager.Instance.addBook("Name", StatsManager.questionResult.DISAGREE);
+        string bookName = TextManager.readableName;
+        StatsManager.Instance.addBook(bookName, StatsManager.questionResult.DISAGREE);
         print("Disagree");
 
     }
 
     public void Indifferent()
     {
-        StatsManager.Instance.addBook("Name", StatsManager.questionResult.INDIFFERENT);
+        string bookName = TextManager.readableName;
+        StatsManager.Instance.addBook(bookName, StatsManager.questionResult.INDIFFERENT);
         print("Indifferent");
 
     }

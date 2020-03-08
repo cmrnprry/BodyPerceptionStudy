@@ -10,6 +10,9 @@ public class TextTrigger : MonoBehaviour
     {
 
         Debug.Log("Trigger Text");
-        FindObjectOfType<TextManager>().StartDialogue(text);
+        TextManager tm = FindObjectOfType<TextManager>();
+        tm.setCurrentName(gameObject.name);
+        tm.StartDialogue(text);
+
     }
 }

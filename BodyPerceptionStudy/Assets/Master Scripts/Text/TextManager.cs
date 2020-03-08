@@ -11,6 +11,7 @@ public class TextManager : MonoBehaviour
     public GameManager gm;
     public TextMeshProUGUI t;
     private Queue<string> sentences;
+    public static string readableName;
 
     void Start()
     {
@@ -18,6 +19,10 @@ public class TextManager : MonoBehaviour
         t.text = "";
     }
 
+    public void setCurrentName(string name)
+    {
+        readableName = name;
+    }
 
     public void StartDialogue(Text text)
     {
@@ -60,7 +65,7 @@ public class TextManager : MonoBehaviour
         // displays each word one by one
         foreach (string word in words)
         {
-            t.text += word;
+            t.text += word + " ";
             yield return new WaitForEndOfFrame(); //waits a single frame
         }
 
@@ -77,7 +82,7 @@ public class TextManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         yield return StartCoroutine(gm.WaitUntil(KeyCode.Mouse0));
-
+        yield return new WaitForSeconds(.25f);
         answers.SetActive(false);
         StartCoroutine(gm.CheckForInput());
         gm.player.GetComponent<FirstPersonController>().enabled = true;
