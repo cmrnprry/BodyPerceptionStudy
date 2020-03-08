@@ -129,8 +129,6 @@ public class GameManager : MonoBehaviour
                     //display text of that object
                     book = hit.transform.gameObject;
                     book.gameObject.GetComponent<TextTrigger>().TriggerDialogue();
-                   
-                    
                 }
             }
             //Check to see if the player is looking at the fridge
@@ -171,6 +169,33 @@ public class GameManager : MonoBehaviour
                     StartCoroutine(ExersciseTreadMill());
                 }
             }
+            //Check for if the player is looking at the radio
+            else if (hit.transform.tag == "Radio")
+            {
+                // Debug.Log("Press E to turn the radio on or off");
+                pressE.text = "Press E to turn the radio on or off";
+                pressE.text += "\nLeft/Right mouse to change stations";
+                pressE.gameObject.SetActive(true);
+
+                Radio_Script radio = hit.transform.gameObject.GetComponent<Radio_Script>();
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("The E Key was pressed: Radio");
+                    radio.toggleRadio();
+                }
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("Change Station 1");
+                    radio.changeStation(1);
+                }
+                if (Input.GetMouseButtonDown(1))
+                {
+                    Debug.Log("Change Station 2");
+                    radio.changeStation(-1);
+                }
+            }
+
+
             else
             {
                 pressE.gameObject.SetActive(false);

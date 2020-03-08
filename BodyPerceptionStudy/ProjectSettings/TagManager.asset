@@ -12,6 +12,7 @@ TagManager:
   - Bullet
   - Enemy
   - EB
+  - Radio
   layers:
   - Default
   - TransparentFX
