@@ -12,7 +12,12 @@ TagManager:
   - Bullet
   - Enemy
   - EB
+<<<<<<< Updated upstream
+=======
+  - Radio
+>>>>>>> Stashed changes
   - Poster
+  - Pantry
   layers:
   - Default
   - TransparentFX
