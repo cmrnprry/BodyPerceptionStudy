@@ -248,6 +248,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
     }
 
+    public IEnumerator ExitMeal()
+    {
+        meal.DePopulateList(meal.orderParent);
+        yield return new WaitForEndOfFrame();
+    }
+
     //When interacting with the treadmill
     IEnumerator ExersciseTreadMill()
     {

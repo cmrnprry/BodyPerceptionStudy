@@ -26,9 +26,20 @@ public class ChooseFood : MonoBehaviour
     {
         Debug.Log("Add Food");
         var text = GetComponentInChildren<TextMeshProUGUI>().text;
-        string[] words = text.Split(' ');
-        var foodName = words[0];
-        var calories = words[2];
+        var foodName = "";
+        var calories = "";
+        for (int ii = 0; ii < text.Length; ii++)
+        {
+            if (text[ii] == '-')
+            {
+                calories = text.Substring(ii+2);
+                break;
+            }
+
+            foodName += text[ii];
+        }
+
+        
 
         if(type == "fridge")
         {

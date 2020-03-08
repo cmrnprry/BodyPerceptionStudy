@@ -99,6 +99,10 @@ public class ButtonController : MonoBehaviour
 
     public void PhoneHome()
     {
+        if (gm.orderFoodScreen.activeSelf == true)
+        {
+            StartCoroutine(gm.ExitMeal());
+        }
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         gm.orderFoodScreen.SetActive(false);
@@ -106,6 +110,7 @@ public class ButtonController : MonoBehaviour
         gm.treadmillScreen.SetActive(false);
         gm.weightsScreen.SetActive(false);
         gm.exerciseScreen.SetActive(false);
+        gm.gameScreen.SetActive(false);
         gm.player.enabled = false;
     }
 
@@ -132,6 +137,12 @@ public class ButtonController : MonoBehaviour
         gm.treadmillScreen.SetActive(false);
         gm.weightsScreen.SetActive(false);
         gm.orderFoodScreen.SetActive(true);
+    }
+
+    public void ExitFood()
+    {
+        StartCoroutine(gm.ExitMeal());
+        ExitPhone();
     }
 
     //Treadmill Exercise

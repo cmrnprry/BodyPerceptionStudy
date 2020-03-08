@@ -73,7 +73,7 @@ public class ChooseAMeal : MonoBehaviour
            
         
         DePopulateList(parent);
-        parent.SetActive(false);
+        //parent.SetActive(false);
 
         gm.foodResultsText.text = "You ate " + cal + " calories.";
         gm.foodResultsScreen.SetActive(true);
@@ -82,6 +82,7 @@ public class ChooseAMeal : MonoBehaviour
 
     public void DePopulateList(GameObject parent)
     {
+        parent.SetActive(false);
         Debug.Log("depop: " + parent.name);
         Button[] buttons = parent.GetComponentsInChildren<Button>(true);
         Debug.Log(buttons.Length);
