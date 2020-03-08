@@ -18,16 +18,17 @@ public class ChooseAMeal : MonoBehaviour
 {
     // List of foods serialized in the Inspector
     public List<FoodItem> fridgeFoods;
-
+    public List<FoodItem> pantryFoods;
     // List of food to order from
     public List<FoodItem> orderableFoods;
     public GameObject button;
 
     //The parents for the refridgerator food
     public GameObject parent;
+    public GameObject pantryParent;
 
     // The parent object for the Order Foods
-    public GameObject orderParent; 
+    public GameObject orderParent;
     public GameManager gm;
 
     // Do not want multiple canvases. 
@@ -42,20 +43,22 @@ public class ChooseAMeal : MonoBehaviour
                 choice.GetComponent<ChooseFood>().type = "fridge";
             if (parent.name == "OrderHolder")
                 choice.GetComponent<ChooseFood>().type = "app";
+            if (parent.name == "Pantry Holder")
+                choice.GetComponent<ChooseFood>().type = "pantry";
 
             Debug.Log(choice.GetComponent<ChooseFood>().type);
 
             var x = choice.GetComponent<Button>();
-            
+
             x.GetComponentInChildren<TextMeshProUGUI>().text = food.name + " - " + food.calories;
-            
+
             choice.transform.parent = parent.transform;
         }
     }
 
     public void BeforeChooseMeal(GameObject parent)
     {
-        
+
         parent.SetActive(true);
         gm.player.GetComponent<FirstPersonController>().enabled = false;
         Cursor.visible = true;
@@ -65,24 +68,23 @@ public class ChooseAMeal : MonoBehaviour
     public void AfterChooseMeal(GameObject parent, string cal)
     {
         Debug.Log("after: " + parent.name);
-        if (parent.name == "Fridge Holder")
+        if (parent.name == "Fridge Holder" || parent.name == "Pantry Holder")
         {
             gm.phone.SetActive(true);
             gm.orderFoodScreen.SetActive(false);
         }
-           
-        
+
+
         DePopulateList(parent);
-        //parent.SetActive(false);
+        parent.SetActive(false);
 
         gm.foodResultsText.text = "You ate " + cal + " calories.";
         gm.foodResultsScreen.SetActive(true);
-       
+
     }
 
     public void DePopulateList(GameObject parent)
     {
-        parent.SetActive(false);
         Debug.Log("depop: " + parent.name);
         Button[] buttons = parent.GetComponentsInChildren<Button>(true);
         Debug.Log(buttons.Length);

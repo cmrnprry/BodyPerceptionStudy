@@ -171,6 +171,25 @@ public class GameManager : MonoBehaviour
                     StartCoroutine(ChooseMeal());
                 }
             }
+            //Check to see if the player is looking at the pantry
+            else if (hit.transform.tag == "Pantry")
+            {
+                Debug.Log("Press E to open Pantry");
+                pressE.text = "Press E to open pantry";
+                pressE.gameObject.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("The E Key was pressed: Pantry");
+
+
+                    // Tell stats the fridge has been opened.
+                    StatsManager.Instance.openedPantry();
+
+                    //display text of that object
+                    StartCoroutine(ChooseMealPantry());
+                }
+            }
             //Check for if the player is looking at the treadmill
             else if (hit.transform.tag == "Tread")
             {
@@ -238,6 +257,15 @@ public class GameManager : MonoBehaviour
 
         meal.PopulateList(meal.fridgeFoods, meal.parent);
         meal.BeforeChooseMeal(meal.parent);
+        yield return new WaitForEndOfFrame();
+    }
+
+    IEnumerator ChooseMealPantry()
+    {
+        StopCoroutine(CheckForInput());
+
+        meal.PopulateList(meal.pantryFoods, meal.pantryParent);
+        meal.BeforeChooseMeal(meal.pantryParent);
         yield return new WaitForEndOfFrame();
     }
 

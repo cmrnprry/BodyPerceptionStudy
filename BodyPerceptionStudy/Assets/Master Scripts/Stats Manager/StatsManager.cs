@@ -25,6 +25,7 @@ public class StatsManager : MonoBehaviour
     private int numPhoneChecks = 0;
     private int numGamePlayed = 0;
     private int numCalChecks = 0;
+    private int numPantryOpens = 0;
     private int numFoodAppOpens = 0;
     // private int numFoodAppOrders = numOfType(orderType.APP);
     private int numFridgeOpens = 0;
@@ -118,6 +119,12 @@ public class StatsManager : MonoBehaviour
     {
         numFoodAppOpens++;
     }
+
+    public void openedPantry()
+    {
+        numPantryOpens++;
+    }
+
     public void openedFridge()
     {
         numFridgeOpens++;
@@ -151,14 +158,16 @@ public class StatsManager : MonoBehaviour
         colTitles[6] = "Food App Orders";
         colTitles[7] = "Fridge Checks";
         colTitles[8] = "Fridge Takes";
-        colTitles[9] = "Total Food Eaten";
-        colTitles[10] = "Exercises Done";
-        colTitles[11] = "Quizzes Taken";
-        colTitles[12] = "Books Read";
-        colTitles[13] = "Foods : Calories";
-        colTitles[14] = "Exercises : Calories";
-        colTitles[15] = "Quiz Questions : Results";
-        colTitles[16] = "Book Names : Results";
+        colTitles[9] = "Pantry Checks";
+        colTitles[10] = "Pantry Takes";
+        colTitles[11] = "Total Food Eaten";
+        colTitles[12] = "Exercises Done";
+        colTitles[13] = "Quizzes Taken";
+        colTitles[14] = "Books Read";
+        colTitles[15] = "Foods : Calories";
+        colTitles[16] = "Exercises : Calories";
+        colTitles[17] = "Quiz Questions : Results";
+        colTitles[18] = "Book Names : Results";
 
         rowData.Add(colTitles);
 
@@ -178,10 +187,12 @@ public class StatsManager : MonoBehaviour
                 resultsRow[6] = numOfType(orderType.APP).ToString();
                 resultsRow[7] = numFridgeOpens.ToString();
                 resultsRow[8] = numOfType(orderType.FRIDGE).ToString();
-                resultsRow[9] = foodsEaten.Count.ToString();
-                resultsRow[10] = exercises.Count.ToString();
-                resultsRow[11] = quizResults.Count.ToString();
-                resultsRow[12] = bookResults.Count.ToString();
+                resultsRow[9] = numPantryOpens.ToString();
+                resultsRow[10] = numOfType(orderType.PANTRY).ToString();
+                resultsRow[11] = foodsEaten.Count.ToString();
+                resultsRow[12] = exercises.Count.ToString();
+                resultsRow[13] = quizResults.Count.ToString();
+                resultsRow[14] = bookResults.Count.ToString();
             }
             if (rowCounter < foodsEaten.Count)
             {
