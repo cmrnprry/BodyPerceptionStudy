@@ -52,8 +52,15 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         player.enabled = false;
         phone.SetActive(false);
-        StartCoroutine(CheckForInput());
+       // StartCoroutine(Dialogue());
         numSecondsLeft = (float)(numPlayMinutes * 60);
+    }
+
+
+    IEnumerator Dialogue()
+    {
+        book.gameObject.GetComponent<TextTrigger>().TriggerDialogue();
+        yield return null;
     }
 
     void Update() {
@@ -209,6 +216,7 @@ public class GameManager : MonoBehaviour
                     StartCoroutine(ExersciseTreadMill());
                 }
             }
+           
             //Check for if the player is looking at the radio
             else if (hit.transform.tag == "Radio")
             {

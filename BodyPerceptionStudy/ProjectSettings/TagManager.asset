@@ -12,9 +12,10 @@ TagManager:
   - Bullet
   - Enemy
   - EB
-
   - Radio
   - Poster
+  - Pantry
+  - Yoga
   layers:
   - Default
   - TransparentFX

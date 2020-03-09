@@ -16,7 +16,7 @@ public class StatsManager : MonoBehaviour
 
     //  STATS TO TRACK:
     //  Calorie Stats:
-    private int caloriesTracked = 2000;
+    private int caloriesTracked = 250;
     private int caloriesNet = 0;
     private int caloriesGained = 0;
     private int caloriesBurned = 0;
@@ -44,7 +44,7 @@ public class StatsManager : MonoBehaviour
     
 
     //  Enums:
-    public enum orderType { APP, FRIDGE };
+    public enum orderType { APP, FRIDGE, PANTRY };
     public enum questionResult { AGREE, DISAGREE, INDIFFERENT };
 
     // Start is called before the first frame update
@@ -148,7 +148,7 @@ public class StatsManager : MonoBehaviour
     {
         Debug.Log("Saving Results...");
         List<string[]> rowData = new List<string[]>();
-        string[] colTitles = new string[17];
+        string[] colTitles = new string[19];
         colTitles[0] = "Total Calroies : Net Calroies";
         colTitles[1] = "Calories Gained";
         colTitles[2] = "Calories Burned";
@@ -175,7 +175,7 @@ public class StatsManager : MonoBehaviour
         int rowCounter = 0;
         while (rowCounter <= maxLength)
         {
-            string[] resultsRow = new string[17];
+            string[] resultsRow = new string[19];
             if (rowCounter == 0)
             {
                 resultsRow[0] = caloriesTracked.ToString() + " : " + caloriesNet.ToString();
@@ -197,22 +197,22 @@ public class StatsManager : MonoBehaviour
             if (rowCounter < foodsEaten.Count)
             {
                 (string, int, orderType) food = foodsEaten[rowCounter];
-                resultsRow[13] = food.Item1.ToString() + " : " + food.Item2.ToString();
+                resultsRow[14] = food.Item1.ToString() + " : " + food.Item2.ToString();
             }
             if (rowCounter < exercises.Count)
             {
                 (string, int) exercise = exercises[rowCounter];
-                resultsRow[14] = exercise.Item1.ToString() + " : " + exercise.Item2.ToString();
+                resultsRow[15] = exercise.Item1.ToString() + " : " + exercise.Item2.ToString();
             }
             if (rowCounter < quizResults.Count)
             {
                 (string, questionResult) quiz = quizResults[rowCounter];
-                resultsRow[15] = quiz.Item1.ToString() + " : " + quiz.Item2.ToString();
+                resultsRow[16] = quiz.Item1.ToString() + " : " + quiz.Item2.ToString();
             }
             if (rowCounter < bookResults.Count)
             {
                 (string, questionResult) book = bookResults[rowCounter];
-                resultsRow[16] = book.Item1.ToString() + " : " + book.Item2.ToString();
+                resultsRow[17] = book.Item1.ToString() + " : " + book.Item2.ToString();
             }
 
             rowData.Add(resultsRow);

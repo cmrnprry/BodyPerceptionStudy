@@ -10,6 +10,8 @@ public class ButtonController : MonoBehaviour
 
     public GameManager gm;
     [SerializeField] private GameObject t;
+    [SerializeField] private GameObject opening;
+    [SerializeField] private GameObject cont;
 
     public void ClosePlanel()
     {
@@ -17,6 +19,16 @@ public class ButtonController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         gm.player.enabled = true;
         t.SetActive(false);
+    }
+
+    public void ReturnStart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 
     public void Agree()
@@ -45,6 +57,12 @@ public class ButtonController : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Master Scene");
+    }
+
+    public void OpeningScene()
+    {
+       opening.gameObject.GetComponent<TextTrigger>().TriggerDialogue();
+        cont.SetActive(false);
     }
 
     public void Credits()

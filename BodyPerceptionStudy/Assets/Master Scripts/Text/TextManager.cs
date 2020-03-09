@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.UI;
 public class TextManager : MonoBehaviour
 {
 
@@ -12,6 +13,8 @@ public class TextManager : MonoBehaviour
     public TextMeshProUGUI t;
     private Queue<string> sentences;
     public static string readableName;
+
+    public GameObject x;
 
     void Start()
     {
@@ -40,8 +43,9 @@ public class TextManager : MonoBehaviour
     }
 
     public IEnumerator DisplayNextSentence()
-    {
+{
         Debug.Log("Display Next Sentence");
+        Debug.Log("Sentences: " + sentences.Count);
 
         textBox.SetActive(true);
 
@@ -49,6 +53,12 @@ public class TextManager : MonoBehaviour
         if (sentences.Count == 0)
         {
             StartCoroutine(EndDialogue());
+            yield break; 
+        }
+        if (sentences.Count == 43)
+        {
+            Debug.Log("hello");
+            StartCoroutine(EndDialogueFake());
             yield break;
         }
 
@@ -86,5 +96,18 @@ public class TextManager : MonoBehaviour
         answers.SetActive(false);
         StartCoroutine(gm.CheckForInput());
         gm.player.GetComponent<FirstPersonController>().enabled = true;
+    }
+
+    IEnumerator EndDialogueFake()
+    {
+        //Allows answers to be displayed
+        t.text = "";
+        textBox.SetActive(false);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        StartCoroutine(gm.CheckForInput());
+        gm.player.GetComponent<FirstPersonController>().enabled = false;
+        x.SetActive(false);
+        yield return null;
     }
 }

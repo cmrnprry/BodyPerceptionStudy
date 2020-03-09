@@ -86,6 +86,8 @@ public class ChooseAMeal : MonoBehaviour
     public void DePopulateList(GameObject parent)
     {
         Debug.Log("depop: " + parent.name);
+
+        parent.SetActive(false);
         Button[] buttons = parent.GetComponentsInChildren<Button>(true);
         Debug.Log(buttons.Length);
         foreach (Button b in buttons)
